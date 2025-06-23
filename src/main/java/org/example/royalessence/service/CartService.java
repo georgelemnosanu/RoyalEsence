@@ -25,7 +25,7 @@ public class CartService {
             User user = userService.getById(cart.getUser().getId())
                     .orElseThrow(() -> new RuntimeException("User not found"));
 
-           
+
             Optional<Cart> existingCart = cartRepository.findByUserId(user.getId());
             if (existingCart.isPresent()) {
                 return existingCart.get();
